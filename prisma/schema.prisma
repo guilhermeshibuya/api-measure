@@ -8,20 +8,22 @@ datasource db {
 }
 
 model customer {
-  id            String    @id @default(uuid())
-  customer_code String
+  customer_code String    @id @default(uuid())
   name          String
   measures      measure[]
+
+  @@map("customers")
 }
 
 model measure {
-  id               String   @id @default(uuid())
-  measure_uuid     String   @unique
+  measure_uuid     String   @id @default(uuid())
   measure_datetime DateTime
   measure_type     String
   has_confirmed    Boolean  @default(false)
   image_url        String
 
-  customer    customer @relation(fields: [customer_id], references: [id])
-  customer_id String
+  customer      customer @relation(fields: [customer_code], references: [customer_code])
+  customer_code String
+
+  @@map("measures")
 }
