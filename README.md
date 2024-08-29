@@ -2,3 +2,5 @@ Para o projeto funcionar é necessário um arquivo .env na raíz do projeto, con
 
 - DATABASE_URL="file:./dev.db"
 - GEMINI_API_KEY=SUA_CHAVE_DO_GEMINI
+
+Após ter isso configurado, usar o comando: docker-compose up --build
