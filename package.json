@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch --env-file .env src/server.ts"
+    "seed": "tsx prisma/seed.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch --env-file .env src/server.ts",
+    "prisma:migrate": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^9.0.1",
     "@google/generative-ai": "^0.17.1",
     "@prisma/client": "^5.19.0",
     "date-fns": "^3.6.0",
